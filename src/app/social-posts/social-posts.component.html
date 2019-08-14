@@ -1,0 +1,16 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+</head>
+<post></post>
+<main>
+    <h1>My Thoughts</h1>
+    <section>
+        <span (click)="toggleForm()">New Thought</span>
+        <div class="posts">
+            <post *ngFor="let post of posts; index as i" [individualPost]="post" [index]="i"
+                (delete)="deletePost($event)"></post>
+        </div>
+    </section>
+</main>
+
+<post-form *ngIf="show" (submitted)="onSubmit($event)"></post-form>
